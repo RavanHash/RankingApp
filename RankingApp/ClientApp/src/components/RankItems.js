@@ -24,7 +24,7 @@ const RankItems = () => {
   return (
     <main>
       {items != null ? (
-        items.map((item) => <h3 key={item.id}>{item.Title}</h3>)
+        items.map((item) => <h3 key={item.id}>{item.title}</h3>)
       ) : (
         <div>Loading...</div>
       )}
