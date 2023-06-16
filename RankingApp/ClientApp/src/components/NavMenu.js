@@ -25,7 +25,7 @@ const NavMenu = () => {
         light
       >
         <NavbarBrand tag={Link} to="/">
-          RankingApp.API
+          RankingApp
         </NavbarBrand>
         <NavbarToggler onClick={toggleNavbar} className="mr-2" />
         <Collapse

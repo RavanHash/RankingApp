@@ -1,3 +1,9 @@
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #15161e;
+  color: #fff;
+}
+
 .navbar {
   background-color: #0e0f14 !important;
 }
@@ -57,7 +63,34 @@ code {
   height: 100%;
 }
 
-body {
-  background-color: #15161e;
-  color: #fff;
+.rank-row{
+  height: 100px;
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
+
+.top-tier {
+  background-color: #88ff7f;
+}
+
+.middle-tier {
+  background-color: #58cef8;
+}
+
+.bottom-tier {
+  background-color: #ff71de;
+}
+
+.worst-tier {
+  background-color: #ff4b5d;
+}
+.rank-cell, .row-label {
+  width: 170px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+}
+
+
