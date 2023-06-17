@@ -1,5 +1,4 @@
 const RankingGrid = ({ items, imgArr, drag, allowDrop, drop }) => {
-  const rankingGrid = [];
   const cellCollectionTop = [];
   const cellCollectionMiddle = [];
   const cellCollectionBottom = [];
@@ -10,6 +9,7 @@ const RankingGrid = ({ items, imgArr, drag, allowDrop, drop }) => {
       let item = items.find((o) => o.ranking === rankNum);
       cellCollection.push(
         <div
+          key={`rank-${rankNum}`}
           id={`rank-${rankNum}`}
           onDrop={drop}
           onDragOver={allowDrop}
@@ -27,7 +27,7 @@ const RankingGrid = ({ items, imgArr, drag, allowDrop, drop }) => {
       );
     } else {
       cellCollection.push(
-        <div className="row-label">
+        <div key={`row-label-${rowLabel}`} className="row-label">
           <h4>{rowLabel}</h4>
         </div>
       );
@@ -60,35 +60,25 @@ const RankingGrid = ({ items, imgArr, drag, allowDrop, drop }) => {
     }
   }
 
-  function createCellsForRows() {
-    const maxRows = 4;
-    for (var row = 1; row <= maxRows; row++) {
-      createCellsForRow(row);
-    }
-  }
-
   function createRowsForGrid() {
-    rankingGrid.push(
-      <div className="rank-row top-tier">{cellCollectionTop}</div>
+    return (
+      <div className="rankings">
+        <div className="rank-row top-tier">{cellCollectionTop}</div>
+        <div className="rank-row middle-tier">{cellCollectionMiddle}</div>
+        <div className="rank-row bottom-tier">{cellCollectionBottom}</div>
+        <div className="rank-row worst-tier">{cellCollectionWorst}</div>
+      </div>
     );
-    rankingGrid.push(
-      <div className="rank-row middle-tier">{cellCollectionMiddle}</div>
-    );
-    rankingGrid.push(
-      <div className="rank-row bottom-tier">{cellCollectionBottom}</div>
-    );
-    rankingGrid.push(
-      <div className="rank-row worst-tier">{cellCollectionWorst}</div>
-    );
-
-    return rankingGrid;
   }
 
   function createRankingGrid() {
-    createCellsForRows();
+    for (var row = 1; row <= 4; row++) {
+      createCellsForRow(row);
+    }
     return createRowsForGrid();
   }
 
-  return <div className="rankings">{createRankingGrid()}</div>;
+  return createRankingGrid();
 };
+
 export default RankingGrid;

@@ -40,8 +40,13 @@ const NavMenu = () => {
               </NavLink>
             </NavItem>
             <NavItem>
-              <NavLink tag={Link} className="text-dark" to="/rank-items">
-                Rank Items
+              <NavLink tag={Link} className="text-dark" to="/rank-movies">
+                Rank Movies
+              </NavLink>
+            </NavItem>
+            <NavItem>
+              <NavLink tag={Link} className="text-dark" to="/rank-albums">
+                Rank Albums
               </NavLink>
             </NavItem>
           </ul>
